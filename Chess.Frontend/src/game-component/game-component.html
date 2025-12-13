@@ -1,0 +1,61 @@
+@if (isLoading()) {
+  <div class="loader">
+    <h1>Loading...</h1>
+  </div>
+} @else if (isConnectionError()) {
+  <div class="loader">
+    <h1>No Connection!</h1>
+  </div>
+} @else if (isEmpty()) {
+  <div class="loader">
+    <h1>Board Not Found!</h1>
+  </div>
+} @else {
+  <p class="turnDisplay"
+     [style.background-color]="displayColor()"
+     [style.color]="displayColor(true)">{{ turnName() }} To Move.</p>
+  <div class="board">
+    <app-board-component [style.aspect-ratio]="board()!.width() +' / '+ board()!.height()"
+                         [currentPlayer]="currentPlayer()"
+                         [board]="board()!"
+                         [state]="state()"
+                         [menu]="menu"></app-board-component>
+  </div>
+  <div class="gameControls">
+    <div class="inputs">
+      <button (click)="switchPlayer()">flip board</button>
+      <form (ngSubmit)="submitMove()" [formGroup]="moveForm">
+        <input type="text" formControlName="moveString"/>
+        <button type="submit" [disabled]="!moveForm.valid">Submit Move</button>
+      </form>
+      <button (click)="undoMove()">Undo</button>
+      <button (click)="deleteGame()">Delete Game</button>
+    </div>
+    <div class="status"
+         [style.visibility]="statusVisible() ? 'visible' : 'hidden'"
+         [style.color]="state().status().code >= 400 ? 'red' : 'black'">{{ state().status().message }}
+    </div>
+    <div class="state-display"
+         [style.visibility]="state().gameState() != GameState.Running ? '' : 'hidden'">
+      @if (isDraw()) {
+        The Game is a Draw!
+      } @else if (isCheck()) {
+        {{ displayColor() }} is in Check!
+      } @else if (isCheckmate()) {
+        {{ displayColor(true) }} is the Winner!
+      }
+    </div>
+  </div>
+}
+<div class="navigation">
+  <button (click)="gotoGames()">Return to Game Selection</button>
+</div>
+
+<mat-menu #menu="matMenu" xPosition="after" overlapTrigger="true">
+    <ng-template matMenuContent let-endPosition="endPosition" let-startPosition="startPosition" let-colorCode="colorCode">
+      <button mat-menu-item (click)="state().sendMoveWrapper(startPosition,endPosition,'Q')"><img [ngSrc]="'/ChessPiecesSVG/Chess_q'+colorCode+'t45.svg'" [width]="50" [height]="50" alt="Queen"></button>
+      <button mat-menu-item (click)="state().sendMoveWrapper(startPosition,endPosition,'B')"><img [ngSrc]="'/ChessPiecesSVG/Chess_b'+colorCode+'t45.svg'" [width]="50" [height]="50" alt="Bishop"></button>
+      <button mat-menu-item (click)="state().sendMoveWrapper(startPosition,endPosition,'N')"><img [ngSrc]="'/ChessPiecesSVG/Chess_n'+colorCode+'t45.svg'" [width]="50" [height]="50" alt="Knight"></button>
+      <button mat-menu-item (click)="state().sendMoveWrapper(startPosition,endPosition,'R')"><img [ngSrc]="'/ChessPiecesSVG/Chess_r'+colorCode+'t45.svg'" [width]="50" [height]="50" alt="Rook"></button>
+    </ng-template>
+</mat-menu>

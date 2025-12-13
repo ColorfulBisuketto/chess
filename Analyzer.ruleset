@@ -1,0 +1,68 @@
+<RuleSet Name="Ruleset for Chess Engine"  Description=" " ToolsVersion="15.0">
+    <Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers">
+        <Rule Id="SA1010" Action="None" />
+        <Rule Id="SA1101" Action="None" />
+        <Rule Id="SA1118" Action="Info" />
+        <Rule Id="SA1200" Action="None" />
+        <Rule Id="SA1309" Action="None" />
+        <Rule Id="SA1405" Action="Info" />
+        <Rule Id="SA1633" Action="None" />
+        <Rule Id="SA1629" Action="Info" />
+        <Rule Id="SA1514" Action="None" />
+        <Rule Id="SA1516" Action="Info" />
+
+        <Rule Id="SA1600" Action="Info" />
+        <Rule Id="SA1611" Action="None" />
+        <Rule Id="SA1615" Action="None" />
+        <Rule Id="SA1618" Action="None" />
+        <Rule Id="SA1623" Action="None" />
+        <Rule Id="SA1648" Action="None" />
+        <Rule Id="NSDEPCOP01" Action="Error" />
+        <Rule Id="CS8618" Action="None" />
+        <Rule Id="SA1642" Action="None" />
+    </Rules>
+
+    <Rules AnalyzerId="SonarAnalyzer.CSharp" RuleNamespace="SonarAnalyzer.CSharp">
+        <!-- Rules that we consciously dont want -->
+        <Rule Id="S112" Action="Info" />
+        <Rule Id="S927" Action="Info" />
+        <Rule Id="S1075" Action="Info" />
+
+        <Rule Id="S1006" Action="Info" />
+        <Rule Id="S1125" Action="Info" />
+        <Rule Id="S1133" Action="Info" />
+        <Rule Id="S1149" Action="None" />
+        <Rule Id="S1144" Action="None" />
+        <Rule Id="S2930" Action="None" />
+        <Rule Id="S2955" Action="Info" />
+        <Rule Id="S3260" Action="Info" />
+        <Rule Id="S3236" Action="Info" />
+        <Rule Id="S3267" Action="Info" />
+        <Rule Id="S3459" Action="None" />
+        <Rule Id="S3881" Action="None" />
+        <Rule Id="S3928" Action="Info" />
+        <Rule Id="S4581" Action="Info" />
+        <Rule Id="S6561" Action="Info" />
+        <Rule Id="S6605" Action="Info" />
+        <Rule Id="S6602" Action="None" />
+        <Rule Id="S6603" Action="Info" />
+        <Rule Id="S6678" Action="None" />
+        <Rule Id="S6964" Action="None" />
+        <Rule Id="S6967" Action="None" />
+
+        <!-- Things that we might want at one point  -->
+        <Rule Id="S108" Action="Info" />
+        <Rule Id="S1135" Action="Info" />
+        <Rule Id="S1940" Action="Info" />
+        <Rule Id="S2372" Action="Info" />
+        <Rule Id="S3885" Action="Info" />
+        <Rule Id="S4136" Action="Info" />
+        <Rule Id="S4456" Action="Info" />
+        <Rule Id="S6562" Action="Info" />
+        <Rule Id="S6608" Action="Info" />
+        <Rule Id="S6612" Action="Info" />
+        <Rule Id="S6966" Action="Info" />
+        <Rule Id="S6580" Action="Info" />
+
+    </Rules>
+</RuleSet>

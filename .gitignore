@@ -1,0 +1,6 @@
+*.sourcelink.json
+vcs.xml
+*DotSettings.user
+*.dll
+*/bin/*
+*/obj/*

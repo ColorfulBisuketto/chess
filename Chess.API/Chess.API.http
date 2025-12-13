@@ -1,0 +1,6 @@
+@Chess.API_HostAddress = https://localhost:7171
+
+POST {{Chess.API_HostAddress}}/chessHub
+Accept: application/json
+
+###

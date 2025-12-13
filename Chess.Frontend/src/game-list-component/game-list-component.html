@@ -1,0 +1,13 @@
+<h1>Currently active Games</h1>
+@if (isLoading()) {
+  <p>Loading...</p>
+} @else if (isError()) {
+  <p>Connection Error!</p>
+} @else if (isEmpty()) {
+  <p>There are currently no active Games.</p>
+} @else {
+  @for (item of gameList(); track $index) {
+    <button (click)="gotoGame(item)">Game {{ item }}</button>
+  }
+}
+<a routerLink="/game/new">Create New Game</a>

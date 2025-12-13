@@ -1,0 +1,16 @@
+<h1>Create new Game</h1>
+<form [formGroup]="newGameForm" (ngSubmit)="onSubmit()">
+  <legend>Please select your preferred Color</legend>
+  <input type="radio" id="white-radio" [value]="Player.White" formControlName="player">
+  <label for="white-radio">White</label>
+  <input type="radio" id="black-radio" [value]="Player.Black" formControlName="player">
+  <label for="black-radio">Black</label>
+  <input type="radio" id="gray-radio" [value]="null" formControlName="player" checked>
+  <label for="gray-radio">Random</label>
+
+  <button type="submit">Submit</button>
+</form>
+
+
+<a routerLink="/games">Return Home</a>
+<button (click)="createNewGame()">Create</button>

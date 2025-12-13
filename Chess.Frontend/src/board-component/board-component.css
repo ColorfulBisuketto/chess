@@ -1,0 +1,23 @@
+:host {
+  display: flex;
+  flex-direction: column-reverse;
+  height: 100%;
+  max-width: 100%;
+}
+
+.board-grid {
+  display: grid;
+  grid-gap: 1px;
+}
+.board-grid .rank {
+  margin: auto 0;
+  text-align: end;
+}
+.board-grid .file {
+  margin: 0 auto;
+}
+.grid-item {
+  display: inline-block;
+  min-height: 0;
+  min-width: 0;
+}

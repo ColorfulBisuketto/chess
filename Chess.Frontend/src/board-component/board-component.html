@@ -1,0 +1,21 @@
+<div class="board-grid"
+     [style.grid-template-columns]="'1em repeat('+ (board().width()) + ', 1fr)'"
+     [style.grid-template-rows]="'repeat('+ (board().height()) + ', 1fr) 1em'"
+     cdkDropListGroup>
+  @for (rowIndex of displayedBoardArray().keys(); track rowIndex){
+    <p class="rank grid-item">{{ translatePosition(rowIndex,-1).row +1 }}</p>
+    @for (colIndex of displayedBoardArray()[rowIndex].keys(); track colIndex){
+      <app-square-component class="grid-item"
+                            [position]="translatePosition(rowIndex,colIndex)"
+                            [board]="board()"
+                            [pieceCode]="displayedBoardArray()[rowIndex][colIndex]"
+                            [state]="state()"
+                            [menu]="menu()"></app-square-component>
+    }
+  }
+  <p class="grid-item"></p> <!--  "Empty" Square in the bottom left corner of the Board Legend  -->
+  @for (colIndex of displayedBoardArray()[0].keys(); track colIndex){
+    <!--  Display the column Index as a letter between a - z  -->
+    <p class="file grid-item">{{ String.fromCharCode(translatePosition(-1,colIndex).column%26 + 97) }}</p>
+  }
+</div>

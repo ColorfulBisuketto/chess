@@ -1,0 +1,49 @@
+:host {
+  display: inline-block;
+  cursor: pointer;
+
+  margin: 0;
+  padding: 0;
+
+}
+.square {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.even {
+  background-color: #e3c48d;
+}
+.odd {
+  background-color: #b18d3e;
+}
+.lastMove {
+  background-color: #628ff3;
+}
+.marked {
+  background-color: #ffbd43;
+}
+.selected {
+  background-color: #ff7543;
+}
+.endGameKing {
+  background-color: #ff0000;
+}
+
+.menu-button {
+  display: inline-block;
+  position: absolute;
+  visibility: hidden;
+}
+.cdk-drag-preview {
+  overflow: hidden;
+}
+.cdk-drop-list-dragging.even {
+  box-sizing: border-box;
+  border: 5px solid #b18d3e;
+}
+.cdk-drop-list-dragging.odd {
+  box-sizing: border-box;
+  border: 5px solid #e3c48d;
+}

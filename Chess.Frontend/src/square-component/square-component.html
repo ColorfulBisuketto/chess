@@ -1,0 +1,32 @@
+<div class="square"
+     [class.even]="even()"
+     [class.odd]="!even()"
+     [class.marked]="board().marked.has(position())"
+     [class.selected]="board().selected().equals(position())"
+     [class.lastMove]="board().lastMove.has(position())"
+     [class.endGameKing]="kingsInCheck().includes(pieceCode())"
+     (click)="select()"
+     matButton
+     cdkDropList
+     cdkDropListAutoScrollDisabled
+     cdkDropListSortingDisabled
+     (cdkDropListDropped)="drop($event)"
+     [cdkDropListSortPredicate]="isIndexZero"
+>
+  @if (pieceCode() != ' ') {
+    <app-piece-component [pieceCode]="pieceCode()"
+                         cdkDrag
+                         cdkDragBoundary=".board"
+                         [cdkDragData]="position()"
+                         (cdkDragStarted)="updateSelected()"></app-piece-component>
+  }
+</div>
+
+<div
+  [matMenuTriggerFor]="menu()"
+  [matMenuTriggerData]="{
+    startPosition: board().selected(),
+    endPosition: position(),
+    colorCode: state().colorCode()
+  }"
+  class="menu-button"></div>
